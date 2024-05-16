@@ -15,18 +15,19 @@ public class JsonKafkaProducer {
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaProducer.class);
     private KafkaTemplate<String, User> kafkaTemplate;
 
-    private JsonKafkaProducer (KafkaTemplate<String , User> kafkaTemplate) {
-        this.kafkaTemplate= kafkaTemplate;
+    private JsonKafkaProducer(KafkaTemplate<String, User> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
 
     }
 
-    public void sendMessage(User user){
-        LOGGER.info(String.format("Message send -> %s",user.toString()));
+    public void sendMessage(User user) {
+        LOGGER.info(String.format("Message send -> %s", user.toString()));
         Message<User> message = MessageBuilder
                 .withPayload(user)
-                .setHeader(KafkaHeaders.TOPIC,"firstJsonTopic")
+                .setHeader(KafkaHeaders.TOPIC, "firstJsonTopic")
                 .build();
 
         kafkaTemplate.send(message);
     }
+
 }

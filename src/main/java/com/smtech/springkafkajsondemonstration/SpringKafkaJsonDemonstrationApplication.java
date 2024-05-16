@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringKafkaJsonDemonstrationApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringKafkaJsonDemonstrationApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringKafkaJsonDemonstrationApplication.class, args);
+    }
 
 }

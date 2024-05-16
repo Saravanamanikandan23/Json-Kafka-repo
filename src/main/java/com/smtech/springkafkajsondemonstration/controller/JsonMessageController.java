@@ -5,7 +5,8 @@ import com.smtech.springkafkajsondemonstration.payload.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController@RequestMapping("api/kafka")
+@RestController
+@RequestMapping("api/kafka")
 public class JsonMessageController {
 
     private JsonKafkaProducer jsonKafkaProducer;
@@ -16,9 +17,10 @@ public class JsonMessageController {
 
     //http://localhost:8080/api/kafka/publish
     @PostMapping("/publish")
-    public ResponseEntity<String>publish(User user){
+    public ResponseEntity<String> publish(User user) {
         jsonKafkaProducer.sendMessage(user);
         return ResponseEntity.ok("Json message sent to the kafka topic");
 
     }
+
 }

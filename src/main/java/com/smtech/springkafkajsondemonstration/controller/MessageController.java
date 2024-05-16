@@ -19,8 +19,9 @@ public class MessageController {
 
     //http:localhost:9092/api/kafka/publish?message=hello world
     @GetMapping("/publish")
-    public ResponseEntity<String> publish (@RequestParam ("message") String message){
-         kafkaProducer.sendMessage(message);
-         return ResponseEntity.ok("Message sent to the topic");
+    public ResponseEntity<String> publish(@RequestParam("message") String message) {
+        kafkaProducer.sendMessage(message);
+        return ResponseEntity.ok("Message sent to the topic");
     }
+
 }
